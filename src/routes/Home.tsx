@@ -1,14 +1,33 @@
-import {
-  Box,
-  Grid,
-  Skeleton,
-  SkeletonCircle,
-  SkeletonText,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Grid, Skeleton, SkeletonText } from "@chakra-ui/react";
 import Room from "../components/Room";
+import { useEffect, useState } from "react";
+import RoomSkeleton from "../components/RoomSkeleton";
+import { useQuery } from "@tanstack/react-query";
+import { getRooms } from "../api";
+
+interface IPhotos {
+  pk: number;
+  file: string;
+  description: string;
+}
+
+interface IRoom {
+  pk: number;
+  name: string;
+  country: string;
+  city: string;
+  price: number;
+  rating: number;
+  is_owner: boolean;
+  photos: IPhotos[];
+}
 
 export default function Home() {
+  const { isLoading, data } = useQuery<IRoom[]>({
+    queryKey: ["rooms"],
+    queryFn: getRooms,
+  });
+
   return (
     <Grid
       mt={10}
@@ -26,11 +45,45 @@ export default function Home() {
         "2xl": "repeat(5, 1fr)",
       }}
     >
-      <Box>
-        <Skeleton rounded={"2xl"} height={280} mb={6} />
-        <SkeletonText w="50%" noOfLines={3} />
-      </Box>
-      <Room />
+      {isLoading ? (
+        <>
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+          <RoomSkeleton />
+        </>
+      ) : null}
+      {data?.map((room) => (
+        <Room
+          imageUrl={room.photos[0].file}
+          name={room.name}
+          rating={room.rating}
+          city={room.city}
+          country={room.country}
+          price={room.price}
+        />
+      ))}
     </Grid>
   );
 }
