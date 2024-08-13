@@ -1,8 +1,10 @@
 import {
+  Avatar,
   Box,
   Button,
   HStack,
   IconButton,
+  LightMode,
   Stack,
   useColorMode,
   useColorModeValue,
@@ -11,8 +13,11 @@ import {
 import { FaAirbnb, FaMoon, FaSun } from "react-icons/fa6";
 import LoginModal from "./LoginModal";
 import SignUpModal from "./SignUpModal";
+import useUser from "../lib/useUser";
 
 export default function Header() {
+  const { userLoading, user, isLoggedIn } = useUser();
+
   // login 모달 on off
   const {
     isOpen: isLoginOpen,
@@ -55,10 +60,20 @@ export default function Header() {
           onClick={toggleColorMode}
           icon={<Icon />}
         />
-        <Button onClick={onLoginOpen}>Log in</Button>
-        <Button onClick={onSignUpOpen} colorScheme={"red"}>
-          Sign up
-        </Button>
+        {!userLoading ? (
+          !isLoggedIn ? (
+            <>
+              <Button onClick={onLoginOpen}>Log in</Button>
+              <LightMode>
+                <Button onClick={onSignUpOpen} colorScheme={"red"}>
+                  Sign up
+                </Button>
+              </LightMode>
+            </>
+          ) : (
+            <Avatar size={"md"} />
+          )
+        ) : null}
       </HStack>
       <LoginModal isOpen={isLoginOpen} onClose={onLoginClose} />
       <SignUpModal isOpen={isSignUpOpen} onClose={onSignUpClose} />
