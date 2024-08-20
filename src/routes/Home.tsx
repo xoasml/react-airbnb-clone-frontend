@@ -42,48 +42,6 @@ export default function Home() {
               price={room.price}
             />
           ))}
-
-      {/*{isLoading ? (*/}
-      {/*  <>*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*    <RoomSkeleton />*/}
-      {/*  </>*/}
-      {/*) : null}*/}
-      {/*{data?.map((room) => (*/}
-      {/*  <Room*/}
-      {/*    key={room.pk}*/}
-      {/*    pk={room.pk}*/}
-      {/*    imageUrl={room.photos[0].file}*/}
-      {/*    name={room.name}*/}
-      {/*    rating={room.rating}*/}
-      {/*    city={room.city}*/}
-      {/*    country={room.country}*/}
-      {/*    price={room.price}*/}
-      {/*  />*/}
-      {/*))}*/}
     </Grid>
   );
 }

@@ -83,7 +83,7 @@ export default function Header() {
       }}
       borderBottomWidth={1}
     >
-      <Box color={logoColor}>
+      <Box as="a" href="/" color={logoColor}>
         <FaAirbnb size={"48px"} />
       </Box>
 
