@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getRoom, getRoomReviews } from "../api";
+import { getRoom, getRoomReviews } from "../apis/api";
 import { IReview, IRoomDetail } from "../types";
 import {
   Box,

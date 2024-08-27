@@ -2,7 +2,7 @@ import { Grid } from "@chakra-ui/react";
 import Room from "../components/Room";
 import RoomSkeleton from "../components/RoomSkeleton";
 import { useQuery } from "@tanstack/react-query";
-import { getRooms } from "../api";
+import { getRooms } from "../apis/api";
 import { IRoomList } from "../types";
 
 export default function Home() {

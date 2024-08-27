@@ -3,6 +3,12 @@ import { FaGithub } from "react-icons/fa";
 import { FaComment } from "react-icons/fa6";
 
 export default function SocialLogin() {
+  const kakaoParams = new URLSearchParams({
+    client_id: "4e6252a4154f2982cadd9b0ec684cbe0",
+    redirect_uri: "http://127.0.0.1:3001/social/kakao",
+    response_type: "code",
+  });
+
   return (
     <Box mb={4}>
       <HStack my={8}>
@@ -26,7 +32,13 @@ export default function SocialLogin() {
         >
           Continue with Github
         </Button>
-        <Button w={"100%"} leftIcon={<FaComment />} colorScheme={"yellow"}>
+        <Button
+          as="a"
+          href={`https://kauth.kakao.com/oauth/authorize?${kakaoParams}`}
+          w={"100%"}
+          leftIcon={<FaComment />}
+          colorScheme={"yellow"}
+        >
           Continue with KaKao
         </Button>
       </VStack>
