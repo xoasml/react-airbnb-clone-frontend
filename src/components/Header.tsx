@@ -23,6 +23,7 @@ import useUser from "../lib/useUser";
 import { logOut } from "../apis/api";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const { userLoading, user, isLoggedIn } = useUser();
@@ -115,6 +116,11 @@ export default function Header() {
                 <Avatar name={user.name} src={user.avatar} size={"md"} />
               </MenuButton>
               <MenuList>
+                {user?.is_host ? (
+                  <Link to="/rooms/upload">
+                    <MenuItem>Upload room</MenuItem>
+                  </Link>
+                ) : null}
                 <MenuItem onClick={onLogOut}>Log out</MenuItem>
               </MenuList>
             </Menu>
