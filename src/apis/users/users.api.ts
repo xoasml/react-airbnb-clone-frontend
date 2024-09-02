@@ -1,5 +1,4 @@
-import { throws } from "assert";
-import { instance, getHeader } from "../axiosConfig";
+import { axiosInstance as axios, getHeader } from "../axiosConfig";
 import { ISignUp } from "./users.interface";
 
 class UsersApi {
@@ -10,7 +9,7 @@ class UsersApi {
   }
 
   public async signUpFetch(input: ISignUp): Promise<any> {
-    return instance().post(`users/sign-up/`, input, {
+    return axios().post(`users/sign-up/`, input, {
       headers: getHeader(),
     });
   }

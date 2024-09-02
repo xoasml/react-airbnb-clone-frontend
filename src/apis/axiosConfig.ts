@@ -7,7 +7,7 @@ const header: Record<string, any> = {
   "X-CSRFToken": Cookie.get("csrftoken") || "",
 };
 
-export const instance = () => {
+export const axiosInstance = () => {
   return axios.create({
     baseURL: baseURL,
     withCredentials: true, // csrf를 보내겠다 라는 설정
