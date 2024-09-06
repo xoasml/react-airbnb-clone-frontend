@@ -18,3 +18,23 @@ export interface IAmenity {
   name: string;
   description: string;
 }
+
+export interface IRoomImageUpload {
+  image: FileList;
+}
+
+export interface IUploadURLResponse {
+  id: string;
+  uploadURL: string;
+}
+
+export interface IUploadImageVariables {
+  file: FileList;
+  uploadURL: string;
+}
+
+export interface ICreatePhotoVariables {
+  description: string;
+  file: string;
+  roomPk: string;
+}
